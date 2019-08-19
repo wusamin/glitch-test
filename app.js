@@ -13,9 +13,10 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.post('/', (req, res) => {
+app.get('/', (req, res) => {
     console.log(req.body)
     console.log(req.query)
+    console.log(req.query['test'])
     funcs.testJson(res);
 });
 
@@ -23,6 +24,10 @@ app.get('/test', (req, res) => {
     // funcs.testRouteJson(res)
     funcs.call(res);
 });
+
+app.get('/timer', (req, res) => {
+    funcs.callUrl(req.query, res)
+})
 
 app.listen(3000);
 console.log('server starting...');

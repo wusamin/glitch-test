@@ -48,7 +48,7 @@ exports.call = (res) => {
 exports.callUrl = (req, res) => {
     console.log('calling...')
 
-    sleep.sleep(time - 0, function () {
+    sleep.sleep(req['time'] - 0, function () {
         request.post(
             requestConfig(req['target'],
                 {}),
